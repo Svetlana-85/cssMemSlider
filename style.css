@@ -15,11 +15,16 @@ body {
 	width: 70rem;
 }
 
+img{
+    width: 70rem;
+}
+
 .slider {
     height: inherit;
 	overflow: hidden;
-	width: inherit;
 	box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+    display: grid;
+    background-color: #ddd;
 }
 
 .wrapper > input {
@@ -30,15 +35,26 @@ body {
 	height: inherit;
 }
 
-.slide1 { background-image: url(./assets/1.jpg); background-size: 700px;}
-.slide2 { background-image: url(./assets/2.jpg); background-size: 700px;}
-.slide3 { background-image: url(./assets/3.jpg); background-size: 700px;}
-.slide4 { background-image: url(./assets/4.jpg); background-size: 700px;}
+.slide1 { 
+    grid-area: slide1;
+    z-index: 1;
+}
+.slide2 { 
+    grid-area: slide2;
+    opacity: 0;
+}
+.slide3 { 
+    grid-area: slide3;
+    opacity: 0;
+}
+.slide4 { 
+    grid-area: slide4;
+    opacity: 0;
+}
 
 .slide-footer{
     margin-top: 2rem;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
 }
 
@@ -95,4 +111,50 @@ label:active .radio-button{
     background-color: #8f8b8b;
 }
 
+#slide1:checked ~ .slider > .slide1{
+    z-index: 1;
+    opacity: 1;
+    transform: scale(1.1);
+	transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+}
+#slide1:checked ~ .slider > .slide2,
+#slide1:checked ~ .slider > .slide3,
+#slide1:checked ~ .slider > .slide4{
+    z-index: 0;
+}
 
+#slide2:checked ~ .slider > .slide2{
+    z-index: 1;
+    opacity: 1;
+    transform: scale(1.1);
+	transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+}
+#slide2:checked ~ .slider > .slide1,
+#slide2:checked ~ .slider > .slide3,
+#slide2:checked ~ .slider > .slide4{
+    z-index: 0;
+}
+
+#slide3:checked ~ .slider > .slide3{
+    z-index: 1;
+    opacity: 1;
+    transform: scale(1.1);
+	transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+}
+#slide3:checked ~ .slider > .slide1,
+#slide3:checked ~ .slider > .slide2,
+#slide3:checked ~ .slider > .slide4{
+    z-index: 0;
+}
+
+#slide4:checked ~ .slider > .slide4{
+    z-index: 1;
+    opacity: 1;
+    transform: scale(1.1);
+	transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+}
+#slide4:checked ~ .slider > .slide1,
+#slide4:checked ~ .slider > .slide2,
+#slide4:checked ~ .slider > .slide3{
+    z-index: 0;
+}
