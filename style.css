@@ -10,16 +10,15 @@ body {
 }
 
 .wrapper {
-	height: 350px;
-	margin: 100px auto 0;
-	width: 700px;
+	height: 35rem;
+	margin: 5rem auto 0;
+	width: 70rem;
 }
 
 .slider {
-	background-color: #dddddd;
-    height: 350px;
+    height: inherit;
 	overflow: hidden;
-	width: 700px;
+	width: inherit;
 	box-shadow: 0 0 20px rgba(0, 0, 0, .5);
 }
 
@@ -37,7 +36,7 @@ body {
 .slide4 { background-image: url(./assets/4.jpg); background-size: 700px;}
 
 .slide-footer{
-    margin-top: 20px;
+    margin-top: 2rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -45,41 +44,55 @@ body {
 
 .slides-text{
     overflow: hidden;
-    width: 350px;
+    width: inherit;
 }
 
 .text{
-    z-index: 0;
     display: none;
     font-size: 1.6rem;
 }
 
-.text1{
-    z-index: 1;
-    display: block;
-}
-
 .controls{
     display: flex;
-    column-gap: 1rem;
+    column-gap: 0.5rem;
 }
 
-.hover-label{
-    padding: 1rem;
-}
-
-.label{
-	height: 16px;
-	width: 16px;
-	border-radius: 50%;
-    border: 2px solid #8f8b8b;
-}
-
-.hover-label:hover{
+label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.5rem;
+    width: 2.5rem;
     cursor: pointer;
 }
 
-.hover-label:hover .label{
-    border: 8px solid #473f3f;
+.radio-button{
+    height: 1.5rem;
+    width: 1.5rem;
+    margin: 2px;
+    display: inline-block;
+    border-radius: 50%;
+    border: 2px solid #8f8b8b;
+    box-shadow: 0em 0em 0.2em black;
 }
+
+label:hover .radio-button{
+    background-color: #473f3f;
+    border: 2px solid #473f3f;
+    opacity: 0.85;
+    transition: 0.3s;
+}
+
+label:active .radio-button{
+    transition: 0.5s;
+    box-shadow: none;
+}
+
+#slide1:checked ~ .slide-footer > .controls > label[for="slide1"] > .radio-button,
+#slide2:checked ~ .slide-footer > .controls > label[for="slide2"] > .radio-button,
+#slide3:checked ~ .slide-footer > .controls > label[for="slide3"] > .radio-button,
+#slide4:checked ~ .slide-footer > .controls > label[for="slide4"] > .radio-button{
+    background-color: #8f8b8b;
+}
+
 
